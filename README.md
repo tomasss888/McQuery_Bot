@@ -1,8 +1,12 @@
-Minecraft Server Status Bot
+# Minecraft Server Status Bot
 
-## Launch
+Simple Minecraft server status bot created to be running on one server. Bot fetches simple data from the server(using query data) and constantly updates and displays server info.
 
-`node index.js`
+## Launch(Simple)
+
+Launch `node deploy-commands.js` to update commands and `node index.js` to initiate bot.
+
+## Launch(Docker)
 
 * Start:
 ```bash
@@ -11,7 +15,7 @@ docker build -t discord-bot
 docker run -d discord-bot 
 ```
 
-* Restart:
+* Common:
 ```bash
 docker ps
 docker stop <CONTAINER ID> 

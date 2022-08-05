@@ -1,6 +1,7 @@
 
 const { InteractionType, InteractionResponseType } = require("discord-api-types/v9");
 const config = require('../config.js');
+const { stopUpdatingEmbed } = require("./setup/embed.js");
 
 async function deleteCommand(interaction, ip) {
 
@@ -8,6 +9,7 @@ async function deleteCommand(interaction, ip) {
     try {
 
         await interaction.reply("Deleted successfully");
+        stopUpdatingEmbed();
 
         if (config.channelID.category === "") {
             await interaction.reply("Nothing to delete");
@@ -26,6 +28,7 @@ async function deleteCommand(interaction, ip) {
 
 
     } catch (error) {
+        await interaction.reply("Failed to delete channels");
         console.log(error)
     }
 

@@ -7,26 +7,27 @@ const rest = new REST({ version: '9' }).setToken(config.bot.botKey);
 const { Routes } = require('discord-api-types/v9');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-function deployCommands() {
+const commands = [
+    new SlashCommandBuilder().setName('help')
+        .setDescription('Displays all commands'),
+    new SlashCommandBuilder().setName('setup')
+        .setDescription('Setup status channels')
+        .addStringOption(option =>
+            option.setName('ip')
+                .setDescription('ip of your server')
+                .setRequired(true)),
+    new SlashCommandBuilder().setName('delete')
+        .setDescription('Deletes created channels by setup'),
+]
+    .map(command => command.toJSON());
 
-    const commands = [
-        new SlashCommandBuilder().setName('status')
-            .setDescription('Shows MC server status'),
-        new SlashCommandBuilder().setName('setup')
-            .setDescription('Setup status channels')
-            .addStringOption(option =>
-                option.setName('ip')
-                    .setDescription('ip of your server')
-                    .setRequired(true)),
-        new SlashCommandBuilder().setName('delete')
-            .setDescription('Deletes created channels by setup'),
-    ]
-        .map(command => command.toJSON());
 
-    rest.put(Routes.applicationGuildCommands(config.bot.clientId, config.bot.guildId), { body: commands })
-        .then(() => console.log('Successfully registered application commands.'))
-        .catch(console.error);
+rest.put(Routes.applicationGuildCommands(config.bot.clientId, config.bot.guildId), { body: [] })
+    .then(() => console.log('Successfully deleted all previous commands.'))
+    .catch(console.error);
 
-}
+rest.put(Routes.applicationCommands(config.bot.clientId), { body: commands })
+    .then(() => console.log('Successfully registered application commands.'))
+    .catch(console.error);
 
-module.exports = { deployCommands }
+

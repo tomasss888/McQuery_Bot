@@ -3,14 +3,15 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, 'GUILD_PRESENCES', '
 const { statusCommand, updateEmbed } = require("./commands/setup/embed.js")
 const { setupCommand } = require("./commands/setup/setup.js")
 const { deleteCommand } = require("./commands/delete.js")
+const { helpCommand } = require("./commands/help.js")
 const { deployCommands } = require("./deploy-commands.js")
 
 const config = require('./config.js');
 
 client.once('ready', () => {
-    //deploys command names
-    deployCommands();
+
     console.log('Bot is Ready!!!');
+    
 });
 
 
@@ -27,8 +28,8 @@ client.on('interactionCreate', async (interaction) => {
 
     const { commandName } = interaction;
 
-    if (commandName === 'status') {
-        //await statusCommand(interaction);
+    if (commandName === 'help') {
+        await helpCommand(interaction);
     }
     if (commandName === 'setup') {
         console.log("Command setup initiated")
