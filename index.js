@@ -4,24 +4,23 @@ const { statusCommand, updateEmbed } = require("./commands/setup/embed.js")
 const { setupCommand } = require("./commands/setup/setup.js")
 const { deleteCommand } = require("./commands/delete.js")
 const { helpCommand } = require("./commands/help.js")
-const { deployCommands } = require("./deploy-commands.js")
+const { } = require("./deploy-commands.js")
 
 const config = require('./config.js');
 
 client.once('ready', () => {
 
     console.log('Bot is Ready!!!');
-    
-});
 
+});
 
 client.on('interactionCreate', async (interaction) => {
 
     // checks if interaction is defined command
     if (!interaction.isCommand()) return;
 
-    // Only person with this role can use this bot
-    if (interaction.guild.roles.cache.find(r => r.id === 976894316918227024)) {
+    // Only person with administrator permissions can call to command
+    if (!interaction.member.permissions.has("ADMINISTRATOR")) {
         await interaction.reply("Administrator permissions required");
         return;
     }

@@ -1,6 +1,8 @@
-# Minecraft Server Status Bot
+# Minecraft Status Discord Bot
 
 Simple Minecraft server status bot created to be running on one server. Bot fetches simple data from the server(using query data) and constantly updates and displays server info.
+
+![Bot Showcase image](https://github.com/tomasss888/ServerStatus.git/images/showcase.png?raw=true)
 
 ## Launch(Simple)
 
