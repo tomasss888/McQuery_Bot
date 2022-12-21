@@ -10,7 +10,7 @@ async function helpCommand(interaction) {
         .setDescription("**COMMANDS -**")
         .addFields(
             { name: '/help', value: 'Displays all the commands and their descriptions.', inline: false },
-            { name: '/setup ip', value: 'Initiates minecraft server status channels creation. Place your minecraft server ip into the first argument.', inline: false },
+            { name: '/setup <ip> <port>', value: 'Initiates minecraft server status channels creation. Place your minecraft server ip into the first argument and port number into second one. Port number is optional ', inline: false },
             { name: '/delete', value: 'Deletes all channels created by setup command.', inline: false },
         );
 

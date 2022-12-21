@@ -36,9 +36,8 @@ client.on('interactionCreate', async (interaction) => {
     }
     if (commandName === 'delete') {
         console.log("Command delete initiated")
-        await deleteCommand(interaction, config.ip);
+        await deleteCommand(client, interaction);
     }
-
 
 });
 

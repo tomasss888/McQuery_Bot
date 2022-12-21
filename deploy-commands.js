@@ -14,8 +14,11 @@ const commands = [
         .setDescription('Setup status channels')
         .addStringOption(option =>
             option.setName('ip')
-                .setDescription('ip of your server')
-                .setRequired(true)),
+                .setDescription('IP address of your server')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('port')
+                .setDescription('Port number of your server')),
     new SlashCommandBuilder().setName('delete')
         .setDescription('Deletes created channels by setup'),
 ]

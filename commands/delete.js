@@ -3,27 +3,37 @@ const { InteractionType, InteractionResponseType } = require("discord-api-types/
 const config = require('../config.js');
 const { stopUpdatingEmbed } = require("./setup/embed.js");
 
-async function deleteCommand(interaction, ip) {
+async function deleteCommand(client, interaction) {
 
 
     try {
 
-        await interaction.reply("Deleted successfully");
-        stopUpdatingEmbed();
+        await interaction.reply("Deleting channels");
+        await stopUpdatingEmbed();
 
         if (config.channelID.category === "") {
             await interaction.reply("Nothing to delete");
             return
         }
 
+        // // Set Bot Status
+        await client.user.setPresence({
+            status: 'dnd',
+            activities: [{
+                type: '',
+                name: ''
+            }]
+        })
+
+        // Deletes all created channels
         var category = await interaction.guild.channels.cache.get(config.channelID.category)
         await category.children.forEach(channel => channel.delete());
         await category.delete();
 
-        
+        // unassign all values 
         config.channelID.category = "";
-        config.channelID.onlineChannel = "";
-        config.channelID.playersChannel = "";
+        // config.channelID.onlineChannel = "";
+        // config.channelID.playersChannel = "";
         config.channelID.infoChannel = "";
 
 
