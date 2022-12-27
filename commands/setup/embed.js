@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { sleep, getMcData } = require("../../functions/common.js");
-const config = require('../../config.js');
+const config = require('../../data/config.js');
 
 var hostname;
 var port;
@@ -54,7 +54,7 @@ async function updateEmbed(client, interaction, callback) {
                 status: 'dnd',
                 activities: [{
                     type: (json.online) ? 'WATCHING' : 'Server',
-                    name: (json.online) ? `${json.players.online} players playing ` : "is Offline"
+                    name: (json.online) ? `${json.players.online} `+ (json.players.online == 1 ? `player` : `players`) +` playing ` : "is Offline"
                 }]
             })
 

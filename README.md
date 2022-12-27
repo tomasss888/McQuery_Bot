@@ -4,17 +4,18 @@ Simple Minecraft server status bot created to be running on one server. Bot fetc
 
 ![Bot Showcase image](https://github.com/tomasss888/ServerStatus/blob/master/images/showcase.png?raw=true)
 
-## Launch(Simple)
+## Launch
 
-Launch `node deploy-commands.js` to update commands and `node index.js` to initiate bot.
+- Fill out [config.js](https://github.com/tomasss888/ServerStatus/blob/master/data/config.js) bot data.
+- Launch `npm init` to install dependencies and `node index.js` to initiate bot.
 
 ## Launch(Docker)
 
 * Start:
 ```bash
-cd ~/discord-bot 
-docker build -t discord-bot 
-docker run -d discord-bot 
+cd ~/ServerStatus 
+docker build -t ServerStatus .
+docker run -d ServerStatus .
 ```
 
 * Common:

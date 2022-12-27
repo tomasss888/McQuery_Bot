@@ -6,7 +6,7 @@ const { deleteCommand } = require("./commands/delete.js")
 const { helpCommand } = require("./commands/help.js")
 const { } = require("./deploy-commands.js")
 
-const config = require('./config.js');
+const config = require('./data/config.js');
 
 client.once('ready', () => {
 

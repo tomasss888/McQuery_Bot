@@ -1,6 +1,6 @@
 
 const { InteractionType, InteractionResponseType } = require("discord-api-types/v9");
-const config = require('../config.js');
+const config = require('../data/config.js');
 const { stopUpdatingEmbed } = require("./setup/embed.js");
 
 async function deleteCommand(client, interaction) {

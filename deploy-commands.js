@@ -1,5 +1,5 @@
 
-const config = require('./config.js');
+const config = require('./data/config.js');
 const { Client, Intents } = require('discord.js')
 const { REST } = require('@discordjs/rest');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });

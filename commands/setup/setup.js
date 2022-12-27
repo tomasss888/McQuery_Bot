@@ -1,4 +1,4 @@
-const config = require('../../config.js');
+const config = require('../../data/config.js');
 const { setupEmbed } = require("./embed.js");
 const console = require('console');
 const { sleep, getMcData, getFavicon } = require("../../functions/common.js");
